@@ -91,7 +91,7 @@ export default function Discentes({ data }) {
           color={'rgb(79 187 182)'}
         />
 
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <Box
             sx={{
               backgroundColor: '#FFF',

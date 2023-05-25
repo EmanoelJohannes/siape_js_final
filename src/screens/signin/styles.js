@@ -10,24 +10,20 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background: ${({ theme }) => theme.colors.primary};
-`
+`;
 
 export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.darkBackground};
   border-radius: 10px;
   z-index: 2;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  width: 940px;
+  width: 540px;
 
   ${media.lessThan('medium')`
     display: flex;
     width: 100%;
     height: 100%;
   `}
-`
+`;
 
 export const FormWrapper = styled.div`
   padding: 40px;
@@ -41,15 +37,20 @@ export const FormWrapper = styled.div`
   ${media.lessThan('medium')`
     padding: 20px;
   `}
-`
+`;
+
+export const LoginTitle = styled.h1`
+  color: ${({ theme }) => theme.colors.yellowLight};
+  margin-bottom: 5px;
+
+`;
 
 export const AccountText = styled.span`
   display: flex;
   flex-direction: row;
-  margin-bottom: 32px;
 
   color: ${({ theme }) => theme.colors.darkText};
-
+  margin-bottom: 15px;
   > a {
     color: ${({ theme }) => theme.colors.yellowLight};
     margin-left: 5px;
@@ -58,22 +59,16 @@ export const AccountText = styled.span`
       opacity: 0.8;
     }
   }
-`
+`;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-`
+`;
 
-export const FormContainer = styled.div``
-
-export const StattrakIcon = styled.div`
-  ${media.greaterThan('medium')`
-    display: none;
-  `}
-`
+export const FormContainer = styled.div``;
 
 export const BottomForm = styled.div`
   display: flex;
@@ -90,11 +85,11 @@ export const BottomForm = styled.div`
       opacity: 0.8;
     }
   }
-`
+`;
 
 export const SubmitButton = styled.div`
   display: flex;
-`
+`;
 
 const iconCSS = css`
   flex-shrink: 0;
@@ -103,11 +98,11 @@ const iconCSS = css`
   height: 15px;
   color: black;
   margin-left: 10px;
-`
+`;
 
 export const ArrowRightIcon = styled(ArrowRight)`
   ${iconCSS}
-`
+`;
 
 export const MainImage = styled.div`
   background-image: linear-gradient(
@@ -129,8 +124,8 @@ export const MainImage = styled.div`
   ${media.lessThan('medium')`
     display: none;
   `}
-`
+`;
 
 export const DividerContainer = styled.div`
   margin: 32px 0;
-`
+`;

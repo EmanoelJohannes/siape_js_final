@@ -12,16 +12,16 @@ export const Container = styled.header`
   z-index: 100;
   position: sticky;
   top: 0;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.blackBackground};
   padding: 0 1.25rem;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   text-align: left;
 
-  border-bottom: 1px solid #1e1e27;
+  border-bottom: 1px solid #ccc;
   width: 100%;
   margin-bottom: 20px;
 

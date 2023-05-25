@@ -14,5 +14,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/dashboard', '/account/:path*', '/fantasy/contests/:path*']
+  matcher: ['/dashboard', '/docentes', '/discentes', '/externos']
 }

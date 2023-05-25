@@ -26,6 +26,7 @@ export {
   KeyboardArrowDown,
   Help,
   Email,
+  Lightbulb,
   Notifications as NotificationsRounded
 } from 'styled-icons/material-rounded'
 export { PeopleTeam, Settings } from 'styled-icons/fluentui-system-regular'
@@ -35,7 +36,8 @@ export { Close } from 'styled-icons/evil'
 export {
   HomeAlt,
   DotsHorizontalRounded,
-  Check
+  Check,
+  UserCircle,
 } from 'styled-icons/boxicons-regular'
 export { TrophyFill, Inbox } from 'styled-icons/bootstrap'
 export { Trophy, Plus } from 'styled-icons/entypo'

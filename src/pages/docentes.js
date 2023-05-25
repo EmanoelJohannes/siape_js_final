@@ -10,20 +10,6 @@ export default function DocentesPage({ data }) {
   );
 }
 
-// export const getStaticProps = async (ctx) => {
-//   const api = getAPIClient(ctx);
-
-//   const { data } = await api.get('docentes');
-//   console.log('data docentes', data);
-  
-//   return {
-//     props: {
-//       data: data
-//     }
-//   };
-// };
-
-
 export const getServerSideProps = async ctx => {
   const api = getAPIClient(ctx)
 

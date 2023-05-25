@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding-bottom: 12px;
+  justify-items: center;
 
   ${media.lessThan('medium')`
     padding-right: 16px;

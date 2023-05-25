@@ -1,10 +1,5 @@
 import React from 'react'
 
-import HomeCarousel from '../../components/HomeCarousel'
-
-import CardGamesList from '../../components/CardGamesList'
-import CardContestsList from '../../components/CardContestsList'
-
 import { Container } from './styles'
 import Accordion from '../../components/AccordionItem'
 
@@ -44,9 +39,6 @@ export default function Home() {
 
   return (
     <Container>
-      <HomeCarousel />
-      <CardGamesList />
-      <CardContestsList />
       <Accordion title="Frequently asked questions" data={faq} />
     </Container>
   )

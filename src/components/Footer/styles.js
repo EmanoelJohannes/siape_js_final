@@ -143,10 +143,8 @@ export const FooterBottomSide = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 12px;
   margin-bottom: 30px;
   align-items: center;
-  border-top: 1px solid rgb(136 134 159/0.15);
   color: ${({ theme }) => theme.colors.darkText};
 
   ${media.lessThan('medium')`
@@ -159,9 +157,6 @@ export const FooterBottomSide = styled.div`
     font-size: 12px;
   }
 
-  ${media.greaterThan('medium')`
-    margin: 20px auto;
-  `}
 `
 
 export const FooterMenu = styled.div`

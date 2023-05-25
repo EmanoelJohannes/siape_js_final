@@ -17,3 +17,8 @@ export const Content = styled.div`
 
   flex: 1;
 `
+
+export const PaddingWrapper = styled.div`
+  padding-right: 40px;
+  padding-left: 40px;
+`;

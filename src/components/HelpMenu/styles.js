@@ -7,7 +7,8 @@ import {
   DiscordAlt,
   Android,
   Apple,
-  Email
+  Email,
+  Lightbulb
 } from '../../../assets/icons'
 
 import media from 'styled-media-query'
@@ -138,7 +139,7 @@ export const AndroidIcon = styled(Android)`
   ${iconCSS}
 `
 
-export const AppleIcon = styled(Apple)`
+export const LightbulbIcon = styled(Lightbulb)`
   ${iconCSS}
 `
 

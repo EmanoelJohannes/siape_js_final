@@ -10,7 +10,7 @@ import {
   MenuButton,
   AccountIcon,
   SettingsIcon,
-  WalletIcon,
+  UserIcon,
   LogOutIcon,
   Divisor
 } from './styles'
@@ -20,8 +20,6 @@ export default function AccountMenu() {
 
   const { user, singOut } = useAuth()
 
-  console.log(user)
-
   return (
     <Popover
       isOpen={open}
@@ -29,34 +27,27 @@ export default function AccountMenu() {
       onClickOutside={() => setOpen(false)}
       content={
         <PopoverMenu>
-          <Link href="/account" passHref>
+          <Link href="#" passHref>
             <MenuButton>
-              <AccountIcon src={'/icon.png'} alt="Stattrak" />
-              <span>@{user.name}</span>
+              <span>{user.name}</span>
             </MenuButton>
           </Link>
           <Divisor />
-          <Link href="/account/wallet" passHref>
-            <MenuButton>
-              <WalletIcon />
-              <span>Wallet</span>
-            </MenuButton>
-          </Link>
-          <Link href="/account/settings/general" passHref>
+          <Link href="#" passHref>
             <MenuButton>
               <SettingsIcon />
-              <span>Settings</span>
+              <span>Configurações</span>
             </MenuButton>
           </Link>
           <MenuButton onClick={singOut}>
             <LogOutIcon />
-            <span>Sign out</span>
+            <span>Sair</span>
           </MenuButton>
         </PopoverMenu>
       }
     >
       <Container onClick={() => setOpen(!open)}>
-        <AccountIcon src={'/icon.png'} alt="Stattrak" />
+        <UserIcon />
       </Container>
     </Popover>
   )

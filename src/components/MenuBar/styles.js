@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
-import Image from 'next/image'
 
 import {
   HomeAlt,
-  SportsEsports,
   Gamepad,
   Settings,
   Inbox
@@ -18,7 +16,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    
     position: sticky;
     top: 0;
     left: 0;
@@ -34,17 +32,18 @@ export const Container = styled.div`
   @media (max-width: 1280px) {
     max-width: 80px;
   }
-`
+`;
 
 export const Topside = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 
   ${media.lessThan('medium')`
     align-items: flex-start;
-  `}
-`
+  `};
+`;
 
 export const Logo = styled.div`
   display: flex;
@@ -55,18 +54,14 @@ export const Logo = styled.div`
   margin-bottom: 12px;
 
   > span {
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 21px;
+    color: ${({ theme }) => theme.colors.textPrimaryLight};
   }
-`
+`;
 
-export const StattrakIcon = styled.div`
-  @media (max-width: 1280px) {
-    display: none;
-  }
-`
-
-export const MenuButton = styled.a`
+export const MenuButton = styled.div`
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -105,10 +100,6 @@ export const MenuButton = styled.a`
   cursor: pointer;
   border-radius: 8px;
 
-  > svg {
-    transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
-  }
-
   &:hover {
     background: #282834;
 
@@ -135,7 +126,7 @@ export const MenuButton = styled.a`
       fill: #ffd789;
     }
   }
-`
+`;
 
 const iconCSS = css`
   flex-shrink: 0;
@@ -143,34 +134,22 @@ const iconCSS = css`
   width: 25px;
   height: 25px;
   color: #88869f;
-`
+`;
 
 export const HomeIcon = styled(HomeAlt)`
   ${iconCSS}
-`
-
-export const DashboardIcon = styled(Inbox)`
-  ${iconCSS}
-`
-
-export const FantasyIcon = styled(SportsEsports)`
-  ${iconCSS}
-`
-
-export const PredictionsIcon = styled(Gamepad)`
-  ${iconCSS}
-`
+`;
 
 export const SettingsIcon = styled(Settings)`
   ${iconCSS}
-`
+`;
 
 export const Divisor = styled.hr`
   width: 100%;
   border: 0.5px solid #282834;
   border-radius: 12px;
   margin: 8px 0;
-`
+`;
 
 export const MenuHeader = styled.div`
   width: 100%;
@@ -190,9 +169,9 @@ export const MenuHeader = styled.div`
   ${media.lessThan('medium')`
     display: none;
   `}
-`
+`;
 
-export const SubMenuButton = styled.a`
+export const SubMenuButton = styled.div`
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -254,18 +233,7 @@ export const SubMenuButton = styled.a`
       fill: #ffd789;
     }
   }
-`
-
-export const MenuIcon = styled(Image)`
-  cursor: pointer;
-  border-radius: 8px;
-`
-
-export const StattrakIconMobile = styled.div`
-  @media (min-width: 1280px) {
-    display: none;
-  }
-`
+`;
 
 export const Wallet = styled.div`
   display: flex;
@@ -314,4 +282,4 @@ export const Wallet = styled.div`
   @media (max-width: 1280px) {
     display: none;
   }
-`
+`;

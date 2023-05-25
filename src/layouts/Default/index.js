@@ -1,13 +1,11 @@
 import React from 'react'
-import { Container as BootstrapContainer } from 'styled-bootstrap-grid'
 
-import { MenuBar } from '../../components/MenuBar'
-import { SideBar } from '../../components/SideBar'
-import Header from '../../components/Header'
-import MobileBottomMenu from '../../components/MobileBottomMenu'
-import Footer from '../../components/Footer'
+import { MenuBar } from '@/components/MenuBar'
+import Header from '@/components/Header'
+import MobileBottomMenu from '@/components/MobileBottomMenu'
+import Footer from '@/components/Footer'
 
-import { Container, Content, Wrapper } from './styles'
+import { Container, Content, Wrapper, PaddingWrapper } from './styles'
 
 export default function Layout({ children }) {
   return (
@@ -16,11 +14,10 @@ export default function Layout({ children }) {
         <MenuBar />
         <Content>
           <Header />
-          <BootstrapContainer>{children}</BootstrapContainer>
+          <PaddingWrapper>{children}</PaddingWrapper>
           <MobileBottomMenu />
           <Footer />
         </Content>
-        {false && <SideBar />}
       </Wrapper>
     </Container>
   )

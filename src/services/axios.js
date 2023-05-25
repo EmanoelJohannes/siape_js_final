@@ -1,8 +1,6 @@
 import axios from 'axios'
 import { parseCookies, destroyCookie } from 'nookies'
 
-import { sleep } from '@/utils/sleep'
-
 export function getAPIClient(ctx) {
   const { '@siape:token': token } = parseCookies(ctx)
 

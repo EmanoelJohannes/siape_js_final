@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { Formik } from 'formik'
 
@@ -9,8 +8,6 @@ import { useSnack } from '@/hooks/useSnack'
 import Button from '@/components/Button'
 import { InputField } from '../../components/Input'
 import Divider from '../../components/Divider'
-import AccountPageImageAnimation from '../../components/AccountPageImageAnimation'
-import { SocialLoginButtons } from '../../components/SocialLoginButtons'
 
 import {
   AccountText,
@@ -24,7 +21,7 @@ import {
   SubmitButton,
   ArrowRightIcon,
   MainImage,
-  DividerContainer
+  LoginTitle
 } from './styles'
 
 export default function SignIn() {
@@ -35,58 +32,31 @@ export default function SignIn() {
 
   return (
     <Container>
-      <AccountPageImageAnimation />
       <Wrapper>
-        <MainImage>
-          <Image
-            src="/icon_branco_st_2.png"
-            alt="Stattrak Logo"
-            width={150}
-            height={40}
-          />
-        </MainImage>
-
         <FormWrapper>
-          <StattrakIcon>
-            <Image
-              src="/stattrak_branco.svg"
-              alt="Stattrak Logo"
-              width={250}
-              height={120}
-            />
-          </StattrakIcon>
-
-          <AccountText>
-            Don&apos;t have an account?
-            <Link href="/auth/signup">Create one</Link>
-          </AccountText>
-
-          {/* <SocialLoginButtons /> */}
-
-          <DividerContainer>
-            <Divider text={'OR'} />
-          </DividerContainer>
+          <LoginTitle>SIAPE - Login</LoginTitle>
+          <AccountText>Entre em contato com o DEX para obter um login.</AccountText>
 
           <FormContainer>
             <Formik
               initialValues={{ email: '', password: '' }}
-              onSubmit={async values => {
+              onSubmit={async (values) => {
                 try {
-                  setLoading(true)
-                  const { email, password } = values
+                  setLoading(true);
+                  const { email, password } = values;
 
                   if (!email || !password) {
-                    return showErrorMessage('Required fields')
+                    return showErrorMessage('Required fields');
                   }
 
                   await signIn({
                     email,
                     password
-                  })
+                  });
                 } catch (error) {
-                  showErrorMessage(error.message)
+                  showErrorMessage(error.message);
                 } finally {
-                  setLoading(false)
+                  setLoading(false);
                 }
               }}
               render={({ handleChange, handleSubmit, values }) => (
@@ -94,7 +64,7 @@ export default function SignIn() {
                   <InputField
                     type="text"
                     name="email"
-                    placeholder="Login"
+                    placeholder="Email"
                     onChange={handleChange('email')}
                     value={values.email}
                   />
@@ -106,10 +76,10 @@ export default function SignIn() {
                     value={values.password}
                   />
                   <BottomForm>
-                    <Link href="/auth/forgot">Forgot password?</Link>
+                    <Link href="/auth/forgot">Esqueceu a senha?</Link>
                     <SubmitButton>
                       <Button loading={loading}>
-                        Login <ArrowRightIcon />
+                        Entrar <ArrowRightIcon />
                       </Button>
                     </SubmitButton>
                   </BottomForm>

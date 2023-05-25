@@ -19,38 +19,21 @@ export default function NotificationsMenu() {
   return (
     <Popover
       isOpen={open}
-      positions={['top', 'bottom', 'left', 'right']} // preferred positions by priority
+      positions={['top', 'bottom', 'left', 'right']}
       onClickOutside={() => setOpen(false)}
       content={
         <PopoverMenu>
-          <Link href="https://play.google.com/store/apps/details?id=gg.stattrak.nexus" passHref>
+          <Link href="#" passHref>
             <MenuButton>
-              <IconContainer>
-                <HelpIcon />
-              </IconContainer>
-
               <OptionContainer>
-                <p>Android app are now available to everyone!</p>
-                <span>a day ago</span>
+                <p>Lançamento da plataforma SIAPE, seja bem vindo!</p>
+                <span>Hoje, 09:35</span>
               </OptionContainer>
             </MenuButton>
           </Link>
 
-          <Link href="https://apps.apple.com/us/app/stattrak-fantasy-esports/id1607153495" passHref>
-            <MenuButton>
-              <IconContainer>
-                <HelpIcon />
-              </IconContainer>
-
-              <OptionContainer>
-                <p>IOS app are now available to everyone!</p>
-                <span>a day ago</span>
-              </OptionContainer>
-            </MenuButton>
-          </Link>
-
-          <Link href="/" passHref>
-            <ViewAllButon>View all</ViewAllButon>
+          <Link href="#" passHref>
+            <ViewAllButon>Ver todos</ViewAllButon>
           </Link>
         </PopoverMenu>
       }

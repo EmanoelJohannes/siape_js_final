@@ -10,7 +10,7 @@ export default function ExternosPage({ data }) {
   );
 }
 
-export const getStaticProps = async (ctx) => {
+export const getServerSideProps = async (ctx) => {
   const api = getAPIClient(ctx);
 
   const { data } = await api.get('externos');

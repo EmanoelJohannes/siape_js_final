@@ -12,42 +12,20 @@ import AccountMenu from '../AccountMenu'
 
 import {
   Container,
-  BarWrapper,
-  NavigationWrapper,
-  SearchWrapper,
-  SearchInput,
-  SearchIcon,
   IconsWrapper,
   ButtonWrapper,
-  NextIcon,
-  PreviousIcon,
   StattrakIcon,
   Desktop,
   Mobile
 } from './styles'
 
 export default function Header() {
-  const router = useRouter()
 
   const { isAuthenticated } = useAuth()
 
   return (
     <Container>
-      <BarWrapper>
-        <NavigationWrapper>
-          <button onClick={() => router.back()}>
-            <PreviousIcon />
-          </button>
-          <button onClick={() => router.back()}>
-            <NextIcon />
-          </button>
-        </NavigationWrapper>
-        <SearchWrapper>
-          <SearchInput placeholder="Search" />
-          <SearchIcon />
-        </SearchWrapper>
-      </BarWrapper>
-
+    
       <Desktop>
         <IconsWrapper>
           <HelpMenu />
@@ -63,18 +41,11 @@ export default function Header() {
             </IconsWrapper>
           </>
         ) : (
-          <>
-            <ButtonWrapper>
-              <Link href="/auth/signin">
-                <Button type="secondary">Login</Button>
-              </Link>
-            </ButtonWrapper>
-            <ButtonWrapper>
-              <Link href="/auth/signup">
-                <Button type="primary">Sign up</Button>
-              </Link>
-            </ButtonWrapper>
-          </>
+          <ButtonWrapper>
+            <Link href="/auth/signin">
+              <Button type="secondary">Login</Button>
+            </Link>
+          </ButtonWrapper>
         )}
       </Desktop>
 

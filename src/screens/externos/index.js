@@ -49,7 +49,7 @@ export default function Externos({ data }) {
             />
           </Box>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12}>
           <Box
             sx={{
               backgroundColor: '#FFF',
