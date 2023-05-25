@@ -4,7 +4,7 @@ export {
   ExitToApp,
   Search,
   SportsEsports,
-  Gamepad
+  Gamepad,
 } from 'styled-icons/material-outlined'
 export { ArrowRight } from 'styled-icons/heroicons-solid'
 export {
@@ -18,7 +18,7 @@ export {
   Android,
   Apple,
   Linkedin,
-  Bitcoin
+  Bitcoin,
 } from 'styled-icons/boxicons-logos'
 export {
   KeyboardArrowRight,
@@ -29,7 +29,7 @@ export {
   Lightbulb,
   Notifications as NotificationsRounded
 } from 'styled-icons/material-rounded'
-export { PeopleTeam, Settings } from 'styled-icons/fluentui-system-regular'
+export { PeopleTeam, Settings, } from 'styled-icons/fluentui-system-regular'
 export { GameController, Wallet, LogOut } from 'styled-icons/ionicons-solid'
 export { Sword } from 'styled-icons/remix-fill'
 export { Close } from 'styled-icons/evil'

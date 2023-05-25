@@ -1,45 +1,58 @@
 import React from 'react'
 
 import { Container } from './styles'
-import Accordion from '../../components/AccordionItem'
+import Accordion from '@/components/AccordionItem'
+import { TopHomeComponent } from '@/components/TopHomePage';
+import { InfoHomeComponent } from '@/components/InfoHomeComponent';
+import { TextInfoHomeComponent } from '@/components/TextInfoHomeComponent';
+import { Box } from '@mui/material';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   const faq = [
     {
-      title: 'What is a fantasy game?',
+      title: 'O que é o SIAPE?',
       content:
-        'A virtual game where you assemble your team with real players who will participate in official matches. Players receive scores depending on their performance in matches.'
+        'O SIAPE é um sistema que reúne dados de projetos de extensão universitária. Ele foi desenvolvida para uso exclusivo dos funcionários do Decanato de Extensão, com o objetivo de auxiliar atividades administrativas que normalmente seriam muito demoradas.'
     },
     {
-      title: 'How does the fantasy game work?',
+      title: 'Quais são as funcionalidades dessa aplicação?',
       content:
-        "You can assemble a team for each contest, by choosing 5 available players with a monetary limit and following the game rules. You can track your team's performance during matches."
+        'O SIAPE permite reunir e acessar informações sobre os projetos de extensão universitária de forma organizada. Os funcionários do Decanato de Extensão podem cadastrar novos projetos, visualizar detalhes de projetos existentes, gerenciar participantes, acompanhar o progresso dos projetos, entre outras atividades relacionadas à administração dos projetos de extensão.'
     },
     {
-      title: 'What are contests?',
+      title: 'Quem pode utilizar?',
       content:
-        'Contests are short competitions for a given round of a championship.'
+        'O uso é exclusivo para os funcionários do Decanato de Extensão. Eles possuem as credenciais necessárias para acessar a aplicação e utilizar todas as suas funcionalidades.'
     },
     {
-      title: 'Do i need to pay to play?',
+      title: 'Essa aplicação é paga?',
       content:
-        'No. Albeit with premium restrictions all game modes are free for all players.'
+        'Não, a aplicação é gratuita para todos os funcionários do Decanato de Extensão. Não há nenhum custo associado ao uso dessa aplicação.'
     },
     {
-      title: 'What are the contest prizes?',
+      title: 'Como posso começar a utilizar essa aplicação?',
       content:
-        'The top ranking players in the contests receive Satoshis as a reward, you can withdraw your satoshis to your wallet.'
+        'Para começar a utilizar a aplicação, basta acessar a plataforma usando as credenciais fornecidas pelo Decanato de Extensão. Uma vez logado, você terá acesso a todas as funcionalidades e poderá começar a visualizar e reunir dados dos projetos de extensão universitária.'
     },
     {
-      title: 'What are satoshis(SATS)?',
+      title: 'Essa aplicação é segura?',
       content:
-        'Satoshi is the smallest fraction of Bitcoin, equivalent to 100 millionth of a bitcoin. Participate in Stattrak games and receive satoshis for your performance so you can withdraw satoshis to your wallet.'
+        'Sim, a segurança é uma prioridade nesta aplicação. Todas as informações dos projetos de extensão são armazenadas de forma segura e só podem ser acessadas pelos funcionários autorizados. Além disso, são implementadas medidas de segurança para proteger os dados contra acessos não autorizados.'
     }
-  ]
+  ];
 
   return (
-    <Container>
-      <Accordion title="Frequently asked questions" data={faq} />
-    </Container>
+    <>
+      <Container>
+        <TopHomeComponent />
+        <Box maxWidth="1380px">
+          <TextInfoHomeComponent />
+          <InfoHomeComponent />
+          <Accordion title="Perguntas frequentes" data={faq} />
+        </Box>
+      </Container>
+      <Footer />
+    </>
   )
 }

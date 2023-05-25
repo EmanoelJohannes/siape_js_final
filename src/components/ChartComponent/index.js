@@ -10,23 +10,23 @@ export default function ChartComponent({
 }) {
   const options = {
     title,
-    chartArea: { width: '100%' },
-    isStacked: true,
+    chartArea: { width: '70%' },
     hAxis: {
       title: hAxis
     },
     vAxis: {
       title: vAxis
-    }
+    },
+    legend: { position: 'right' }
   };
 
   return (
     <Chart
       chartType={chartType}
+      data={data}
       width="100%"
       height="100%"
-      data={data}
-      options={!optionsProp ? options : optionsProp}
+      options={options}
     />
   );
 }

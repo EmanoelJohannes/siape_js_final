@@ -3,8 +3,13 @@ import React from 'react';
 import { Box, Grid } from '@mui/material';
 
 export const Metrics = ({ title, value, color, size }) => {
+
+  if (!size) {
+    size = 4;
+  }
+  
   return (
-    <Grid item xs={4}>
+    <Grid item xs={size}>
       <Box
         sx={{
           backgroundColor: '#FFF',

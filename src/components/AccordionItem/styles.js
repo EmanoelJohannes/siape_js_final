@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { KeyboardArrowDown } from '../../../assets/icons';
 
 export const StyledChevron = styled(KeyboardArrowDown)`
-  color: white;
+  color: black;
   transition: transform 300ms cubic-bezier(0.87, 0, 0.13, 1);
   transform: ${props => (props.active ? 'rotate(180deg)' : '')};
   height: 16px;
@@ -14,7 +14,8 @@ export const StyledChevron = styled(KeyboardArrowDown)`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 60px;
 `;
 
 export const AccordionContainer = styled.div`
@@ -27,14 +28,14 @@ export const AccordionInner = styled.div`
 `;
 
 export const AccordionItem = styled.div`
-  background: #14141a;
+  background: #ddd;
   border-radius: 4px;
   margin-bottom: 12px;
   cursor: pointer;
   position: relative;
 
   &:hover {
-    background: #1e1e27;
+    background: #ccc;
   }
 `;
 
@@ -70,6 +71,6 @@ export const AccordionContent = styled.p`
   margin: 0;
   padding: 0 1rem 1rem;
   height: auto;
-  color: #818098;
+  color: #333;
   font-size: 15px;
 `;

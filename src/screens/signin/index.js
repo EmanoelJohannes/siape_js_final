@@ -76,7 +76,7 @@ export default function SignIn() {
                     value={values.password}
                   />
                   <BottomForm>
-                    <Link href="/auth/forgot">Esqueceu a senha?</Link>
+                    <Link href="#">Esqueceu a senha?</Link>
                     <SubmitButton>
                       <Button loading={loading}>
                         Entrar <ArrowRightIcon />

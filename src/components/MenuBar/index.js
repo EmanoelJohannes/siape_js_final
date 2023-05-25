@@ -1,6 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
+
+import teacher from '../../../public/teacher.png';
+import student from '../../../public/student.png';
+import publicIcon from '../../../public/publico.png';
 
 import {
   Container,
@@ -25,9 +30,9 @@ export function MenuBar() {
         </Logo>
 
         <Link href="/dashboard" passHref style={{ width: '100%' }}>
-          <MenuButton className={router.pathname === '/' ? 'active' : ''}>
+          <MenuButton className={router.pathname === '/dashboard' ? 'active' : ''}>
             <HomeIcon />
-            <span>Home</span>
+            <span>Dashboard</span>
           </MenuButton>
         </Link>
 
@@ -41,7 +46,12 @@ export function MenuBar() {
           <SubMenuButton
             className={router.pathname === '/docentes' ? 'active' : ''}
           >
-            <SettingsIcon />
+            <Image
+              width={45}
+              height={40}
+              src={teacher}
+              alt="Stattrak Logo"
+            />
             <span>Docentes</span>
           </SubMenuButton>
         </Link>
@@ -50,7 +60,12 @@ export function MenuBar() {
           <SubMenuButton
             className={router.pathname === '/discentes' ? 'active' : ''}
           >
-            <SettingsIcon />
+            <Image
+              width={45}
+              height={40}
+              src={student}
+              alt="Stattrak Logo"
+            />
             <span>Discentes</span>
           </SubMenuButton>
         </Link>
@@ -59,7 +74,12 @@ export function MenuBar() {
           <SubMenuButton
             className={router.pathname === '/externos' ? 'active' : ''}
           >
-            <SettingsIcon />
+            <Image
+              width={45}
+              height={40}
+              src={publicIcon}
+              alt="Stattrak Logo"
+            />
             <span>Externos</span>
           </SubMenuButton>
         </Link>
