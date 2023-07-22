@@ -6,6 +6,7 @@ import Image from 'next/image'
 import teacher from '../../../public/teacher.png';
 import student from '../../../public/student.png';
 import publicIcon from '../../../public/publico.png';
+import departamentosIcon from '../../../public/departamento.png';
 
 import {
   Container,
@@ -13,7 +14,6 @@ import {
   Logo,
   MenuButton,
   HomeIcon,
-  SettingsIcon,
   Divisor,
   MenuHeader,
   SubMenuButton,
@@ -50,7 +50,7 @@ export function MenuBar() {
               width={45}
               height={40}
               src={teacher}
-              alt="Stattrak Logo"
+              alt="Docentes"
             />
             <span>Docentes</span>
           </SubMenuButton>
@@ -64,7 +64,7 @@ export function MenuBar() {
               width={45}
               height={40}
               src={student}
-              alt="Stattrak Logo"
+              alt="Discentes"
             />
             <span>Discentes</span>
           </SubMenuButton>
@@ -78,11 +78,32 @@ export function MenuBar() {
               width={45}
               height={40}
               src={publicIcon}
-              alt="Stattrak Logo"
+              alt="Externos"
             />
             <span>Externos</span>
           </SubMenuButton>
         </Link>
+
+        <Divisor />
+
+        <MenuHeader>
+          <span>Departamentos</span>
+        </MenuHeader>
+
+        <Link href="/departamentos" passHref style={{ width: '100%' }}>
+          <SubMenuButton
+            className={router.pathname === '/departamentos' ? 'active' : ''}
+          >
+            <Image
+              width={45}
+              height={40}
+              src={departamentosIcon}
+              alt="Métricas gerais"
+            />
+            <span>Métricas gerais</span>
+          </SubMenuButton>
+        </Link>
+
       </Topside>
     </Container>
   )

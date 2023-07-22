@@ -1,18 +1,29 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
+import { setCookie } from 'nookies'
 import { Popover } from 'react-tiny-popover'
+import { useRouter } from 'next/router';
 
 import {
   Container,
-  HelpIcon,
   PopoverMenu,
   MenuButton,
-  EmailIcon,
-  LightbulbIcon
+  CalendarIcon,
+  BookIcon,
+  GearIcon,
+  MenuIcon
 } from './styles'
 
 export default function HelpMenu() {
   const [open, setOpen] = useState(false)
+  const router = useRouter();
+
+  const handleClick = async (action) => {
+    setCookie(null, '@siape:action', action);
+
+    await new Promise(resolve => setTimeout(resolve, 100));
+
+    router.reload();
+  };
 
   return (
     <Popover
@@ -21,23 +32,23 @@ export default function HelpMenu() {
       onClickOutside={() => setOpen(false)}
       content={
         <PopoverMenu>
-          <Link href="#" passHref>
-            <MenuButton>
-              <LightbulbIcon />
-              <span>Conheça o projeto</span>
+            <MenuButton onClick={() => handleClick('cursos')}>
+              <BookIcon />
+              <span>Cursos</span>
             </MenuButton>
-          </Link>
-          <Link href="#" passHref>
-            <MenuButton>
-              <EmailIcon />
-              <span>Suporte</span>
+            <MenuButton onClick={() => handleClick('eventos')}>
+              <CalendarIcon />
+              <span>Eventos</span>
             </MenuButton>
-          </Link>
+            <MenuButton onClick={() => handleClick('projetos')}>
+              <GearIcon />
+              <span>Projetos</span>
+            </MenuButton>
         </PopoverMenu>
       }
     >
       <Container onClick={() => setOpen(!open)}>
-        <HelpIcon />
+        <MenuIcon />
       </Container>
     </Popover>
   )

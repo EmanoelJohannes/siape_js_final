@@ -5,10 +5,10 @@ import {
   Twitter,
   InstagramAlt,
   DiscordAlt,
-  Android,
-  Apple,
-  Email,
-  Lightbulb
+  Gear,
+  Menu,
+  CalendarToday,
+  Book
 } from '../../../assets/icons'
 
 import media from 'styled-media-query'
@@ -31,7 +31,7 @@ export const Container = styled.div`
   }
 `
 
-export const HelpIcon = styled(Help)`
+export const MenuIcon = styled(Menu)`
   width: 18px;
   height: 18px;
 
@@ -135,15 +135,15 @@ export const DiscordIcon = styled(DiscordAlt)`
   ${iconCSS}
 `
 
-export const AndroidIcon = styled(Android)`
+export const GearIcon = styled(Gear)`
   ${iconCSS}
 `
 
-export const LightbulbIcon = styled(Lightbulb)`
+export const BookIcon = styled(Book)`
   ${iconCSS}
 `
 
-export const EmailIcon = styled(Email)`
+export const CalendarIcon = styled(CalendarToday)`
   ${iconCSS}
 `
 

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
+import { parseCookies } from 'nookies';
 import {
   FormControl,
   FormControlLabel,
@@ -31,6 +32,7 @@ function Selectors({
   setQtdPeopleByYear
 }) {
   const theme = useTheme();
+  const { '@siape:action': action } = parseCookies();
 
   function getStyles(departament, filtredDepartaments, theme) {
     return {
@@ -95,7 +97,7 @@ function Selectors({
           });
         }
       }
-
+      
       setSelectedDepartament(aux);
       setSelectedManagers(auxManager);
 
@@ -107,14 +109,13 @@ function Selectors({
 
       if (filtredDepartaments.length) {
         const response = await api.post(
-          `/post-departament-in-years`,
+          `/post-departament-in-years?type=${action}`,
           filtredDepartaments
         );
         setQtdPeopleByYear(response.data.matrixData);
       } else {
         setQtdPeopleByYear([]);
       }
-      // console.log('entrou aqui');
     }
 
     filterDepartaments();

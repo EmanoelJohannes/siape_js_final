@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import { Container } from '@/components/Container';
 import Selectors from '@/components/Selectors';
 import ChartComponent from '@/components/ChartComponent';
 import { Metrics } from '@/components/Metrics';
+import PDFGenerator from '@/components/PDFGenerator';
 
 export default function Discentes({ data }) {
   const [typeChart, setTypeChart] = useState('ColumnChart');
@@ -15,9 +16,43 @@ export default function Discentes({ data }) {
   const [qtdPeopleByYear, setQtdPeopleByYear] = useState([]);
   const [contextData, setContextData] = useState(data);
 
+  const [showPdfModal, setShowPdfModal] = useState(false)
+
+  const handleOpenModal = () => {
+    setShowPdfModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setShowPdfModal(false)
+  }
+
   return (
     <Container>
-      <h1>Indicador - Discentes / Departamentos</h1>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}
+      >
+        <h1>Indicador - Discentes / Departamentos</h1>
+        <Button variant="contained" onClick={handleOpenModal}>
+          Gerar PDF
+        </Button>
+        {showPdfModal && (
+          <PDFGenerator
+            peoplesFromDepartaments={
+              selectedDepartament.length != 0
+                ? selectedDepartament
+                : contextData.peoplesFromDepartaments
+            }
+            selectedManagers={selectedManagers}
+            contextData={contextData}
+            onClose={handleCloseModal}
+            type="discentes"
+          />
+        )}
+      </Box>
 
       <Grid spacing={2} container my="24px">
         <Grid item xs={4}>

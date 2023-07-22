@@ -39,7 +39,7 @@ export {
   Check,
   UserCircle,
 } from 'styled-icons/boxicons-regular'
-export { TrophyFill, Inbox } from 'styled-icons/bootstrap'
+export { TrophyFill, Inbox, Gear } from 'styled-icons/bootstrap'
 export { Trophy, Plus } from 'styled-icons/entypo'
-export { Security } from 'styled-icons/material'
+export { Security, Menu, CalendarToday, Book } from 'styled-icons/material'
 export { Minus } from 'styled-icons/evaicons-solid'

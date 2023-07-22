@@ -1,23 +1,73 @@
-import React, { useState } from 'react';
-import { Box, Grid } from '@mui/material';
-import { Container } from '@/components/Container';
-import Selectors from '@/components/Selectors';
-import ChartComponent from '@/components/ChartComponent';
-import { Metrics } from '@/components/Metrics';
+import React, { useState } from 'react'
+import { Box, Button, Grid } from '@mui/material'
+import { Container } from '@/components/Container'
+import Selectors from '@/components/Selectors'
+import ChartComponent from '@/components/ChartComponent'
+import { Metrics } from '@/components/Metrics'
+import PDFGenerator from '@/components/PDFGenerator'
+import ExcelGenerator from '@/components/ExcelGenerator'
+import ExcelGeneratorButton from '@/components/ExcelGenerator'
 
 export default function Docentes({ data }) {
-  const [typeChart, setTypeChart] = useState('ColumnChart');
-  const [selectedYear, setSelectedYear] = useState(0);
-  const [selectedDepartament, setSelectedDepartament] = useState([]);
-  const [selectedManagers, setSelectedManagers] = useState(0);
-  const [naoRepetidos, setNaoRepetidos] = useState(false);
-  const [filtredDepartaments, setFiltredDepartaments] = useState([]);
-  const [qtdPeopleByYear, setQtdPeopleByYear] = useState([]);
-  const [contextData, setContextData] = useState(data);
+  const [typeChart, setTypeChart] = useState('ColumnChart')
+  const [selectedYear, setSelectedYear] = useState(0)
+  const [selectedDepartament, setSelectedDepartament] = useState([])
+  const [selectedManagers, setSelectedManagers] = useState(0)
+  const [naoRepetidos, setNaoRepetidos] = useState(false)
+  const [filtredDepartaments, setFiltredDepartaments] = useState([])
+  const [qtdPeopleByYear, setQtdPeopleByYear] = useState([])
+  const [contextData, setContextData] = useState(data)
+
+  const [showPdfModal, setShowPdfModal] = useState(false)
+
+  const handleOpenModal = () => {
+    setShowPdfModal(true)
+  }
+
+  const handleCloseModal = () => {
+    setShowPdfModal(false)
+  }
 
   return (
     <Container>
-      <h1>Indicador - Docentes / Departamentos</h1>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}
+      >
+        <h1>Indicador - Docentes / Departamentos</h1>
+        <Box>
+          <Button variant="contained" onClick={handleOpenModal} sx={{marginRight: '10px'}}>
+            Gerar PDF
+          </Button>
+          {showPdfModal && (
+            <PDFGenerator
+              peoplesFromDepartaments={
+                selectedDepartament.length != 0
+                  ? selectedDepartament
+                  : contextData.peoplesFromDepartaments
+              }
+              selectedManagers={selectedManagers}
+              contextData={contextData}
+              onClose={handleCloseModal}
+              type="docentes"
+            />
+          )}
+
+          <ExcelGeneratorButton
+            peoplesFromDepartaments={
+              selectedDepartament.length != 0
+                ? selectedDepartament
+                : contextData.peoplesFromDepartaments
+            }
+            selectedManagers={selectedManagers}
+            contextData={contextData}
+            type={'docentes'}
+          />
+        </Box>
+      </Box>
 
       <Grid spacing={2} container my="24px">
         <Grid item xs={4}>
@@ -90,7 +140,7 @@ export default function Docentes({ data }) {
           value={selectedManagers}
           color={'rgb(79 187 182)'}
         />
-        
+
         <Grid item xs={12}>
           <Box
             sx={{
@@ -115,5 +165,5 @@ export default function Docentes({ data }) {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
 }

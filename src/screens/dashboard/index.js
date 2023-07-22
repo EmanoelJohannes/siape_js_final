@@ -11,8 +11,6 @@ export default function Dashboard({ data }) {
   const [generalMetricsData, setGeneralMetricsData] = useState(null);
   const [financingMetric, setFinanciingMetric] = useState(null);
   
-  console.log(data);
-
   useEffect(() => {
     async function fetchData() {
       let response = await api.get('generalMetrics');
@@ -28,7 +26,6 @@ export default function Dashboard({ data }) {
       setFinanciingMetric(responseFinancing.data.resultTipoFinanciamento);
       setMetricPublic(dataMetrics);
       setGeneralMetricsData(response.data);
-      console.log(response.data);
     }
 
     fetchData();
