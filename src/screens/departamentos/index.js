@@ -8,6 +8,7 @@ import { SimpleMetric } from '@/components/SimpleMetric'
 import DepartamentsSelectors from '@/components/DepartamentsSelectors'
 
 import PDFGenerator from './pdfGenerator';
+import ExcelGeneratorDepartamentosButton from './excelGenerator'
 
 export default function Departamentos({ data }) {
   const [metricPublic, setMetricPublic] = useState([])
@@ -44,12 +45,23 @@ export default function Departamentos({ data }) {
     setShowPdfModal(false);
   };
 
+  console.log(selectedDepartament);
+
   return (
     <Container>
       <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
         <h1>Departamentos</h1>
-        <Button variant='contained' onClick={handleOpenModal}>Gerar PDF</Button>
-        {showPdfModal && (<PDFGenerator contextData={contextData} onClose={handleCloseModal} />)}
+        
+
+        <Box>
+          <Button sx={{marginRight: '10px'}} variant='contained' onClick={handleOpenModal}>Gerar PDF</Button>
+          {showPdfModal && (<PDFGenerator selectedDepartament={selectedDepartament} contextData={contextData} onClose={handleCloseModal} />)}
+
+          <ExcelGeneratorDepartamentosButton
+            selectedDepartament={selectedDepartament} 
+            contextData={contextData}
+          />
+        </Box>
       </Box>
       <Box
         sx={{

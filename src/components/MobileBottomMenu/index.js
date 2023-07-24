@@ -8,10 +8,6 @@ import {
   BottomMenu,
   MenuButton,
   HomeIcon,
-  DashboardIcon,
-  FantasyIcon,
-  PredictionsIcon,
-  SettingsIcon
 } from './styles'
 
 export default function MobileBottomMenu() {
@@ -20,25 +16,31 @@ export default function MobileBottomMenu() {
 
   return (
     <BottomMenu>
-      <Link href="/" passHref>
+      <Link href="/dashboard" passHref>
         <MenuButton className={router.pathname === '/' && 'active'}>
           <HomeIcon />
         </MenuButton>
       </Link>
 
       {isAuthenticated && (
-        <Link href="/account/dashboard" passHref>
+        <Link href="/docentes" passHref>
           <MenuButton
             className={router.pathname === '/account/dashboard' && 'active'}
           >
-            <DashboardIcon />
+            Docentes
           </MenuButton>
         </Link>
       )}
 
-      <Link href="/fantasy" passHref>
+      <Link href="/discentes" passHref>
         <MenuButton className={router.pathname.includes('fantasy') && 'active'}>
-          <FantasyIcon />
+          Discentes
+        </MenuButton>
+      </Link>
+
+      <Link href="/externos" passHref>
+        <MenuButton className={router.pathname.includes('fantasy') && 'active'}>
+          Externos
         </MenuButton>
       </Link>
 
@@ -51,11 +53,11 @@ export default function MobileBottomMenu() {
       </Link> */}
 
       {isAuthenticated && (
-        <Link href="/account/settings/general" passHref>
+        <Link href="/departamentos" passHref>
           <MenuButton
             className={router.pathname.includes('settings') && 'active'}
           >
-            <SettingsIcon />
+            Departamentos
           </MenuButton>
         </Link>
       )}

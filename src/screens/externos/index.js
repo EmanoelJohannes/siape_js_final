@@ -5,6 +5,7 @@ import Selectors from '@/components/Selectors';
 import ChartComponent from '@/components/ChartComponent';
 import { Metrics } from '@/components/Metrics';
 import PDFGenerator from '@/components/PDFGenerator';
+import ExcelGeneratorButton from '@/components/ExcelGenerator';
 
 export default function Externos({ data }) {
   const [typeChart, setTypeChart] = useState('ColumnChart');
@@ -36,11 +37,25 @@ export default function Externos({ data }) {
         }}
       >
         <h1>Indicador - Externos / Departamentos</h1>
-        <Button variant="contained" onClick={handleOpenModal}>
-          Gerar PDF
-        </Button>
-        {showPdfModal && (
-          <PDFGenerator
+        <Box>
+          <Button variant="contained" onClick={handleOpenModal} sx={{marginRight: '10px'}}>
+            Gerar PDF
+          </Button>
+          {showPdfModal && (
+            <PDFGenerator
+              peoplesFromDepartaments={
+                selectedDepartament.length != 0
+                  ? selectedDepartament
+                  : contextData.peoplesFromDepartaments
+              }
+              selectedManagers={selectedManagers}
+              contextData={contextData}
+              onClose={handleCloseModal}
+              type="externos"
+            />
+          )}
+
+          <ExcelGeneratorButton
             peoplesFromDepartaments={
               selectedDepartament.length != 0
                 ? selectedDepartament
@@ -48,10 +63,9 @@ export default function Externos({ data }) {
             }
             selectedManagers={selectedManagers}
             contextData={contextData}
-            onClose={handleCloseModal}
-            type="externos"
+            type={'externos'}
           />
-        )}
+        </Box>
       </Box>
 
       <Grid spacing={2} container my="24px">

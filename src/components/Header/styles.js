@@ -240,6 +240,7 @@ export const Desktop = styled.div`
 export const Mobile = styled.div`
   width: 100%;
   display: flex;
+  justify-content: space-between;
 
   ${media.greaterThan('medium')`
     display: none;

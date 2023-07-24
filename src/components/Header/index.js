@@ -17,15 +17,41 @@ import {
   Desktop,
   Mobile
 } from './styles'
+import { Box, Typography } from '@mui/material'
+import { parseCookies } from 'nookies'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 export default function Header() {
-
   const { isAuthenticated } = useAuth()
+
+  const [action, setAction] = useState(null)
+
+  useEffect(() => {
+    const { '@siape:action': actionCookie } = parseCookies()
+    setAction(actionCookie)
+  }, [])
 
   return (
     <Container>
-    
       <Desktop>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            marginRight: '20px',
+            flexDirection: 'row'
+          }}
+        >
+            <Typography
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              color="#ffd789"
+            >
+              Ação selecionada: {action}
+            </Typography>
+        </Box>
         <IconsWrapper>
           <HelpMenu />
         </IconsWrapper>
@@ -49,14 +75,9 @@ export default function Header() {
       </Desktop>
 
       <Mobile>
-        <StattrakIcon>
-          <Image
-            width={120}
-            height={48}
-            src="/icon_branco_st_1.svg"
-            alt="Stattrak Logo"
-          />
-        </StattrakIcon>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Typography sx={{ color: 'white' }}>SIAPE</Typography>
+        </Box>
 
         <>
           <IconsWrapper>

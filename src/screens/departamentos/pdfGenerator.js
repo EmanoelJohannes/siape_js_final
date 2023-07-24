@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const PDFGenerator = ({ contextData, onClose }) => {
+const PDFGenerator = ({ selectedDepartament, contextData, onClose }) => {
   const classes = useStyles()
 
   return (
@@ -80,6 +80,15 @@ const PDFGenerator = ({ contextData, onClose }) => {
               <View>
                 <Text style={styles.header}>Relatório de Departamentos</Text>
               </View>
+
+              {selectedDepartament.length > 0 && 
+                <View style={styles.section}>
+                  <Text style={styles.title}>Departamentos selecionados</Text>
+                  {selectedDepartament.map((department, index) => (
+                    <Text key={index}>{department}</Text>
+                  ))}
+                </View>
+              }
               
               <View style={styles.section}>
                 <Text style={styles.title}>Informações Gerais</Text>

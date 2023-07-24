@@ -19,7 +19,7 @@ export default function AccountMenu() {
   const [open, setOpen] = useState(false)
 
   const { user, singOut } = useAuth()
-
+  console.log(user);
   return (
     <Popover
       isOpen={open}
@@ -33,6 +33,14 @@ export default function AccountMenu() {
             </MenuButton>
           </Link>
           <Divisor />
+          {user.role === 'admin' && 
+            <Link href="/adicionar-usuario" passHref>
+              <MenuButton>
+                <AccountIcon />
+                <span>Adicionar usuário</span>
+              </MenuButton>
+            </Link>
+          }
           <Link href="#" passHref>
             <MenuButton>
               <SettingsIcon />

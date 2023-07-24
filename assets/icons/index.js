@@ -7,6 +7,7 @@ export {
   Gamepad,
 } from 'styled-icons/material-outlined'
 export { ArrowRight } from 'styled-icons/heroicons-solid'
+export { UserAdd } from 'styled-icons/heroicons-outline'
 export {
   Google,
   Discord,

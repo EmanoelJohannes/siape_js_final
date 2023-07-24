@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Apple, Settings, UserCircle, LogOut } from '../../../assets/icons'
+import { Apple, Settings, UserCircle, LogOut, UserAdd } from '../../../assets/icons'
 import media from 'styled-media-query'
 
 export const Container = styled.div`
@@ -101,7 +101,7 @@ const iconCSS = css`
   color: #88869f;
 `
 
-export const AccountIcon = styled.img`
+export const AccountIcon = styled(UserAdd)`
   ${iconCSS}
 `
 
