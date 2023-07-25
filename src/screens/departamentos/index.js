@@ -7,7 +7,7 @@ import ChartComponent from '@/components/ChartComponent'
 import { SimpleMetric } from '@/components/SimpleMetric'
 import DepartamentsSelectors from '@/components/DepartamentsSelectors'
 
-import PDFGenerator from './pdfGenerator';
+import PDFGenerator from './pdfGenerator'
 import ExcelGeneratorDepartamentosButton from './excelGenerator'
 
 export default function Departamentos({ data }) {
@@ -34,31 +34,47 @@ export default function Departamentos({ data }) {
     }
 
     fetchData()
-
   }, [contextData])
 
   const handleOpenModal = () => {
-    setShowPdfModal(true);
-  };
+    setShowPdfModal(true)
+  }
 
   const handleCloseModal = () => {
-    setShowPdfModal(false);
-  };
+    setShowPdfModal(false)
+  }
 
-  console.log(selectedDepartament);
+  console.log(selectedDepartament)
 
   return (
     <Container>
-      <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+        }}
+      >
         <h1>Departamentos</h1>
-        
 
         <Box>
-          <Button sx={{marginRight: '10px'}} variant='contained' onClick={handleOpenModal}>Gerar PDF</Button>
-          {showPdfModal && (<PDFGenerator selectedDepartament={selectedDepartament} contextData={contextData} onClose={handleCloseModal} />)}
+          <Button
+            sx={{ marginRight: '10px' }}
+            variant="contained"
+            onClick={handleOpenModal}
+          >
+            Gerar PDF
+          </Button>
+          {showPdfModal && (
+            <PDFGenerator
+              selectedDepartament={selectedDepartament}
+              contextData={contextData}
+              onClose={handleCloseModal}
+            />
+          )}
 
           <ExcelGeneratorDepartamentosButton
-            selectedDepartament={selectedDepartament} 
+            selectedDepartament={selectedDepartament}
             contextData={contextData}
           />
         </Box>
@@ -105,9 +121,7 @@ export default function Departamentos({ data }) {
                   title="Projetos Concluídos"
                   value={
                     contextData
-                      ? contextData.totalConcluidos.toLocaleString(
-                          'pt-BR'
-                        )
+                      ? contextData.totalConcluidos.toLocaleString('pt-BR')
                       : 0
                   }
                   color={'#4f93bb'}
@@ -129,9 +143,7 @@ export default function Departamentos({ data }) {
                   title="Discentes"
                   value={
                     contextData
-                      ? contextData.totalDiscentes.toLocaleString(
-                          'pt-BR'
-                        )
+                      ? contextData.totalDiscentes.toLocaleString('pt-BR')
                       : 0
                   }
                   color={'#4f93bb'}
@@ -153,9 +165,7 @@ export default function Departamentos({ data }) {
                   title="Departamentos"
                   value={
                     contextData
-                      ? contextData.qntd_departamento.toLocaleString(
-                          'pt-BR'
-                        )
+                      ? contextData.qntd_departamento.toLocaleString('pt-BR')
                       : 0
                   }
                   color={'#4f93bb'}
@@ -172,33 +182,42 @@ export default function Departamentos({ data }) {
         >
           Informações gerais sobre público
         </Typography>
-        <Grid container spacing={2} justifyContent="space-between">
-          <Metrics
-            title="Público interno estimado"
-            value={contextData.estimadoInterno.toLocaleString('pt-BR')}
-            color="#4f93bb"
-            size={3}
-          />
-          <Metrics
-            title="Público externo estimado"
-            value={contextData.estimadoExterno.toLocaleString('pt-BR')}
-            color="rgb(96 187 79)"
-            size={3}
-          />
-          <Metrics
-            title="Público atingido"
-            value={contextData.atingido.toLocaleString('pt-BR')}
-            color="rgb(79 187 182)"
-            size={3}
-          />
-          <Grid item>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público interno estimado"
+              value={contextData.estimadoInterno.toLocaleString('pt-BR')}
+              color="#4f93bb"
+              size={3}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público externo estimado"
+              value={contextData.estimadoExterno.toLocaleString('pt-BR')}
+              color="rgb(96 187 79)"
+              size={3}
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público atingido"
+              value={contextData.atingido.toLocaleString('pt-BR')}
+              color="rgb(79 187 182)"
+              size={3}
+            />
+
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
                 backgroundColor: '#FFF',
                 padding: '12px',
                 borderRadius: '8px',
                 height: '250px',
-                width: '300px'
               }}
             >
               <ChartComponent

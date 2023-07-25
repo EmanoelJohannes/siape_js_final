@@ -1,38 +1,36 @@
-import React from 'react';
+import React from 'react'
 
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material'
 
 export const SimpleMetric = ({ title, value, color, size }) => {
   return (
-    <Grid item xs={4}>
-      <Box
-        sx={{
-          backgroundColor: '#FFF',
-          height: '100px',
-          width: '200px',
-          borderRadius: '3px',
+    <Box
+      sx={{
+        backgroundColor: '#FFF',
+        height: '100px',
+        width: '100%',
+        borderRadius: '3px',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column'
+      }}
+    >
+      <div
+        style={{
           display: 'flex',
-          justifyContent: 'center',
           alignItems: 'center',
-          flexDirection: 'column'
+          justifyContent: 'center',
+          flexDirection: 'column',
+          borderLeft: '5px solid rgb(79 187 182)',
+          width: '100%'
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            borderLeft: '5px solid rgb(79 187 182)',
-            width: '100%'
-          }}
-        >
-          <h1 style={{ fontSize: '14px', marginBottom: '5px' }}>{title}</h1>
-          <h1 style={{ color: 'rgb(79 187 182)', fontWeight: 'bolder' }}>
-            {value}
-          </h1>
-        </div>
-      </Box>
-    </Grid>
-  );
-};
+        <h1 style={{ fontSize: '14px', marginBottom: '5px' }}>{title}</h1>
+        <h1 style={{ color: 'rgb(79 187 182)', fontWeight: 'bolder' }}>
+          {value}
+        </h1>
+      </div>
+    </Box>
+  )
+}

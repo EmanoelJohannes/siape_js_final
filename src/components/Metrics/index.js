@@ -4,12 +4,7 @@ import { Box, Grid } from '@mui/material';
 
 export const Metrics = ({ title, value, color, size }) => {
 
-  if (!size) {
-    size = 4;
-  }
-  
   return (
-    <Grid item xs={size}>
       <Box
         sx={{
           backgroundColor: '#FFF',
@@ -41,6 +36,5 @@ export const Metrics = ({ title, value, color, size }) => {
           </h1>
         </div>
       </Box>
-    </Grid>
   );
 };

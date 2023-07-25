@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Box, Button, Grid } from '@mui/material';
-import { Container } from '@/components/Container';
-import Selectors from '@/components/Selectors';
-import ChartComponent from '@/components/ChartComponent';
-import { Metrics } from '@/components/Metrics';
-import PDFGenerator from '@/components/PDFGenerator';
-import ExcelGeneratorButton from '@/components/ExcelGenerator';
+import React, { useState } from 'react'
+import { Box, Button, Grid } from '@mui/material'
+import { Container } from '@/components/Container'
+import Selectors from '@/components/Selectors'
+import ChartComponent from '@/components/ChartComponent'
+import { Metrics } from '@/components/Metrics'
+import PDFGenerator from '@/components/PDFGenerator'
+import ExcelGeneratorButton from '@/components/ExcelGenerator'
 
 export default function Externos({ data }) {
-  const [typeChart, setTypeChart] = useState('ColumnChart');
-  const [selectedYear, setSelectedYear] = useState(0);
-  const [selectedDepartament, setSelectedDepartament] = useState([]);
-  const [selectedManagers, setSelectedManagers] = useState(0);
-  const [naoRepetidos, setNaoRepetidos] = useState(false);
-  const [filtredDepartaments, setFiltredDepartaments] = useState([]);
-  const [qtdPeopleByYear, setQtdPeopleByYear] = useState([]);
-  const [contextData, setContextData] = useState(data);
+  const [typeChart, setTypeChart] = useState('ColumnChart')
+  const [selectedYear, setSelectedYear] = useState(0)
+  const [selectedDepartament, setSelectedDepartament] = useState([])
+  const [selectedManagers, setSelectedManagers] = useState(0)
+  const [naoRepetidos, setNaoRepetidos] = useState(false)
+  const [filtredDepartaments, setFiltredDepartaments] = useState([])
+  const [qtdPeopleByYear, setQtdPeopleByYear] = useState([])
+  const [contextData, setContextData] = useState(data)
 
   const [showPdfModal, setShowPdfModal] = useState(false)
 
@@ -32,13 +32,25 @@ export default function Externos({ data }) {
       <Box
         sx={{
           display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between'
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
+          alignItems: { xs: 'start', md: 'center' }
         }}
       >
         <h1>Indicador - Externos / Departamentos</h1>
-        <Box>
-          <Button variant="contained" onClick={handleOpenModal} sx={{marginRight: '10px'}}>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: { xs: 'start', md: 'end' },
+            width: '100%',
+            mt: { xs: '16px', md: '0' }
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={handleOpenModal}
+            sx={{ marginRight: '10px' }}
+          >
             Gerar PDF
           </Button>
           {showPdfModal && (
@@ -68,8 +80,8 @@ export default function Externos({ data }) {
         </Box>
       </Box>
 
-      <Grid spacing={2} container my="24px">
-        <Grid item xs={4}>
+      <Grid container spacing={2} sx={{ my: '24px' }}>
+        <Grid item xs={12} sm={6} md={4}>
           <Box
             sx={{
               backgroundColor: '#FFF',
@@ -98,7 +110,7 @@ export default function Externos({ data }) {
             />
           </Box>
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} sm={6} md={8}>
           <Box
             sx={{
               backgroundColor: '#FFF',
@@ -122,23 +134,29 @@ export default function Externos({ data }) {
           </Box>
         </Grid>
 
-        <Metrics
-          title="Quantidade total de participantes externos no ano"
-          value={contextData.totalPeoples}
-          color={'#4f93bb'}
-        />
+        <Grid item xs={12} sm={6} md={4}>
+          <Metrics
+            title="Quantidade total de participantes externos no ano"
+            value={contextData.totalPeoples}
+            color={'#4f93bb'}
+          />
+        </Grid>
 
-        <Metrics
-          title="Quantidade de departamentos que apoiou cursos externos"
-          value={contextData.peoplesFromDepartaments.length}
-          color={'rgb(96 187 79)'}
-        />
+        <Grid item xs={12} sm={6} md={4}>
+          <Metrics
+            title="Quantidade de departamentos que apoiou cursos externos"
+            value={contextData.peoplesFromDepartaments.length}
+            color={'rgb(96 187 79)'}
+          />
+        </Grid>
 
-        <Metrics
-          title="Total de externos selecionados"
-          value={selectedManagers}
-          color={'rgb(79 187 182)'}
-        />
+        <Grid item xs={12} sm={6} md={4}>
+          <Metrics
+            title="Total de externos selecionados"
+            value={selectedManagers}
+            color={'rgb(79 187 182)'}
+          />
+        </Grid>
 
         <Grid item xs={12}>
           <Box
@@ -164,5 +182,5 @@ export default function Externos({ data }) {
         </Grid>
       </Grid>
     </Container>
-  );
+  )
 }

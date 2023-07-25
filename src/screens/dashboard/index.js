@@ -34,15 +34,12 @@ export default function Dashboard({ data }) {
   return (
     <Container>
       <h1>Dashboard</h1>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          marginTop: '30px'
-        }}
+      <Grid
+        container
+        direction="column"
+        spacing={2}
       >
-        <div>
+        <Grid item>
           <h2
             style={{
               fontSize: '25px',
@@ -52,80 +49,81 @@ export default function Dashboard({ data }) {
           >
             Métricas gerais
           </h2>
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            width: '100%'
-          }}
+        </Grid>
+        <Grid
+          item
+          container
+          spacing={2}
+          justifyContent="space-between"
         >
-          <SimpleMetric
-            title="Total Projetos"
-            value={
-              generalMetricsData
-                ? generalMetricsData.totalProjetos.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-          <SimpleMetric
-            title="Projetos Concluídos"
-            value={
-              generalMetricsData
-                ? generalMetricsData.totalConcluidos.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-          <SimpleMetric
-            title="Docentes"
-            value={
-              generalMetricsData
-                ? generalMetricsData.totalManager.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-          <SimpleMetric
-            title="Discentes"
-            value={
-              generalMetricsData
-                ? generalMetricsData.totalDiscentes.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-          <SimpleMetric
-            title="Externos"
-            value={
-              generalMetricsData
-                ? generalMetricsData.totalExterno.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-          <SimpleMetric
-            title="Departamentos"
-            value={
-              generalMetricsData
-                ? generalMetricsData.qntd_departamento.toLocaleString('pt-BR')
-                : 0
-            }
-            color={'#4f93bb'}
-          />
-        </div>
-      </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%',
-          marginTop: '30px'
-        }}
-      >
-        <div>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Total Projetos"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.totalProjetos.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Projetos Concluídos"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.totalConcluidos.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Docentes"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.totalManager.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Discentes"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.totalDiscentes.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Externos"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.totalExterno.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={4} lg={2}>
+            <SimpleMetric
+              title="Departamentos"
+              value={
+                generalMetricsData
+                  ? generalMetricsData.qntd_departamento.toLocaleString('pt-BR')
+                  : 0
+              }
+              color={'#4f93bb'}
+            />
+          </Grid>
+        </Grid>
+        <Grid item>
           <h1
             style={{
               fontSize: '25px',
@@ -135,43 +133,41 @@ export default function Dashboard({ data }) {
           >
             Informações gerais sobre público
           </h1>
-        </div>
+        </Grid>
         <Grid
           item
           container
-          width={'100%'}
           spacing={2}
           justifyContent={'space-between'}
         >
-          <Metrics
-            title="Público interno estimado"
-            value={data.estimadoInterno.toLocaleString('pt-BR')}
-            color={'#4f93bb'}
-            size={3}
-          />
-          <Metrics
-            title="Público externo estimado"
-            value={data.estimadoExterno.toLocaleString('pt-BR')}
-            color={'rgb(96 187 79)'}
-            size={3}
-
-          />
-          <Metrics
-            title="Público atingido"
-            value={data.atingido.toLocaleString('pt-BR')}
-            color={'rgb(79 187 182)'}
-            size={3}
-
-          />
-
-          <Grid item>
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público interno estimado"
+              value={data.estimadoInterno.toLocaleString('pt-BR')}
+              color={'#4f93bb'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público externo estimado"
+              value={data.estimadoExterno.toLocaleString('pt-BR')}
+              color={'rgb(96 187 79)'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Metrics
+              title="Público atingido"
+              value={data.atingido.toLocaleString('pt-BR')}
+              color={'rgb(79 187 182)'}
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
                 backgroundColor: '#FFF',
                 padding: '12px',
                 borderRadius: '8px',
-                height: '250px',
-                width: '300px'
+                height: '250px'
               }}
             >
               <ChartComponent
@@ -182,39 +178,45 @@ export default function Dashboard({ data }) {
             </Box>
           </Grid>
         </Grid>
-      </div>
-      <Grid item container my="24px" justifyContent={'space-between'}>
-        <Box
-          sx={{
-            backgroundColor: '#FFF',
-            height: '300px',
-            width: '47%',
-            padding: '12px',
-            borderRadius: '8px'
-          }}
+        <Grid
+          item
+          container
+          spacing={2}
+          justifyContent={'space-between'}
         >
-          <ChartComponent
-            title="Tipos de Financiamento/Quantidade em projetos"
-            chartType={'ColumnChart'}
-            data={financingMetric}
-          />
-        </Box>
-
-        <Box
-          sx={{
-            backgroundColor: '#FFF',
-            height: '300px',
-            width: '47%',
-            padding: '12px',
-            borderRadius: '8px'
-          }}
-        >
-          <ChartComponent
-            title="Gráfico da quantidade de projetos ao longo dos anos"
-            chartType="LineChart"
-            data={generalMetricsData ? generalMetricsData.yearsProject : []}
-          />
-        </Box>
+          <Grid item xs={12} sm={12} md={6}>
+            <Box
+              sx={{
+                backgroundColor: '#FFF',
+                height: '300px',
+                padding: '12px',
+                borderRadius: '8px'
+              }}
+            >
+              <ChartComponent
+                title="Tipos de Financiamento/Quantidade em projetos"
+                chartType={'ColumnChart'}
+                data={financingMetric}
+              />
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6}>
+            <Box
+              sx={{
+                backgroundColor: '#FFF',
+                height: '300px',
+                padding: '12px',
+                borderRadius: '8px'
+              }}
+            >
+              <ChartComponent
+                title="Gráfico da quantidade de projetos ao longo dos anos"
+                chartType="LineChart"
+                data={generalMetricsData ? generalMetricsData.yearsProject : []}
+              />
+            </Box>
+          </Grid>
+        </Grid>
       </Grid>
     </Container>
   );
