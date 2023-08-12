@@ -19,7 +19,6 @@ export default function AccountMenu() {
   const [open, setOpen] = useState(false)
 
   const { user, singOut } = useAuth()
-  console.log(user);
   return (
     <Popover
       isOpen={open}
