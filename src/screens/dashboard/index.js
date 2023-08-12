@@ -19,7 +19,7 @@ export default function Dashboard({ data }) {
 
       dataMetrics.push(['Externo', data.estimadoExterno]);
       dataMetrics.push(['Interno', data.estimadoInterno]);
-      dataMetrics.push(['Atingido', data.atingido]);
+      //dataMetrics.push(['Atingido', data.atingido]);
 
       dataMetrics.unshift(['Público', 'Quantidade']);
 
@@ -171,7 +171,7 @@ export default function Dashboard({ data }) {
               }}
             >
               <ChartComponent
-                title="Total Público"
+                title="Comparação entre públicos estimados"
                 chartType={'PieChart'}
                 data={metricPublic}
               />

@@ -44,7 +44,6 @@ export default function Departamentos({ data }) {
     setShowPdfModal(false)
   }
 
-  console.log(selectedDepartament)
 
   return (
     <Container>
